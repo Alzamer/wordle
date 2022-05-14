@@ -1,0 +1,12 @@
+.boardWrapper{
+    width: 490px;
+    height: 570px;
+    margin-left: auto;
+    margin-right: auto;
+    clear: both;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+    justify-content: center;
+    gap: 5px;
+}
