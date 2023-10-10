@@ -35,8 +35,8 @@
 
 .tile{
     width: 60px;
-    min-width: 40px;
-    max-width: 40px;
+    min-width: 60px;
+    max-width: 60px;
 }
 
 .info a{
@@ -49,3 +49,9 @@
 .info a:hover{
     color: lightskyblue;
 }
+
+@media (max-width: 1135px) {
+    .container{
+        
+    }
+}  
