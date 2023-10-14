@@ -28,7 +28,7 @@
     align-items: center;
 }
 
-.right p:hover{
+.right p span:hover{
     cursor: pointer;
     color: lightskyblue;
 }
