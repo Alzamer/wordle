@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { addLetter } from '../Game/gameSlice'
+import { addLetter, deleteLetter } from '../Game/gameSlice'
 import KeyboardRow from '../KeyboardRow'
 import styles from './Keyboard.module.css'
 
@@ -14,9 +14,13 @@ export default function Keyboard(){
         ['check', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', 'backspace']
     ]
 
-    const handleKeydown = (event: any) => {
+    const handleKeydown = (event: any) => {        
         if(event.key.match(/^[a-zA-Z]$/))
             dispatch(addLetter(event.key))
+        else if(event.key == "Enter")
+            console.log(123)
+        else if(event.key == "Backspace")
+            dispatch(deleteLetter())
     }
 
     useEffect(() => {

@@ -8,9 +8,8 @@ type propsType = {
 
 function keyFunc(x: String, index: number, array: String[] ){
     if(x.length === 1)
-        return <Key>{ x }</Key>
-    console.log(123)
-    return <SpecialKey>{ x }</SpecialKey>
+        return <Key key={index}>{ x }</Key>
+    return <SpecialKey key={index}>{ x }</SpecialKey>
 }
 
 export default function KeyboardRow({ children } : propsType){

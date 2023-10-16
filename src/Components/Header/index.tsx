@@ -14,20 +14,20 @@ export default function Header(){
 			<p>Wordle</p>
 		</div>
 		<div className={styles.right}>
-			<p className={styles.tile}>
-				<Modal show={showInfoModal} setShow={setShowInfoModal}/>
+			<Modal show={showInfoModal} setShow={setShowInfoModal}/>
+			<p className={styles.tile}>				
 				<span className="material-symbols-outlined" onClick={() => setShowInfoModal(!showInfoModal)}>
 					question_mark
 				</span>
 			</p>
+			<Modal show={showScoreboardModal} setShow={setShowScoreboardModal}/>
 			<p className={styles.tile}>
-				<Modal show={showScoreboardModal} setShow={setShowScoreboardModal}/>
 				<span className="material-symbols-outlined" onClick={() => setShowScoreboardModal(!showScoreboardModal)}>
 					scoreboard
 				</span>
 			</p>
+			<Modal show={showSettingsModal} setShow={setShowSettingsModal}/>
 			<p className={styles.tile}>
-				<Modal show={showSettingsModal} setShow={setShowSettingsModal}/>
 				<span className="material-symbols-outlined" onClick={() => setShowSettingsModal(!showSettingsModal)}>
 					settings
 				</span>
