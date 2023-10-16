@@ -1,6 +1,12 @@
 .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 55px;
     height: 55px;
     box-sizing: border-box;
-    border: 2px solid gray
+    border: 2px solid gray;
+    color: white;
+    font-size: 36px;
+    font-family: 'Ubuntu', sans-serif;
 }

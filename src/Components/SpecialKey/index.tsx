@@ -1,11 +1,18 @@
 import styles from './SpecialKey.module.css'
+import { useDispatch } from 'react-redux'
+import { deleteLetter } from '../Game/gameSlice'
 
 interface propsInterface {
 	children: String
 }
 
 export default function SpecialKey(props : propsInterface){
-	return <div className={styles.container}>
+    const dispatch = useDispatch()
+    const handleClick = (target: any) => {
+        dispatch(deleteLetter())
+    }
+    
+    return <div className={styles.container} onClick={handleClick}>
         <span className="material-symbols-outlined">
         {
             props.children

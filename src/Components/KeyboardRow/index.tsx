@@ -3,7 +3,7 @@ import SpecialKey from '../SpecialKey'
 import styles from './KeyboardRow.module.css'
 
 type propsType = {
-    children: Array<String>
+    children: Array<String>,
 }
 
 function keyFunc(x: String, index: number, array: String[] ){
