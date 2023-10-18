@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getRandomWord } from '../../utils'
+import { getRandomWord, markLetters } from '../../utils'
 
 export const gameSlice = createSlice({
   name: 'game',
@@ -39,7 +39,7 @@ export const gameSlice = createSlice({
       state.currentWords = temp
     },
     checkWord: (state) => {
-      console.log(123)
+      markLetters(state.correctWord, [...state.currentWords[state.cursorY]])
     }
   }
 })
