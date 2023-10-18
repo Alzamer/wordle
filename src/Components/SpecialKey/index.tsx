@@ -1,6 +1,6 @@
 import styles from './SpecialKey.module.css'
 import { useDispatch } from 'react-redux'
-import { deleteLetter } from '../Game/gameSlice'
+import { deleteLetter, checkWord } from '../Game/gameSlice'
 
 interface propsInterface {
 	children: String
@@ -9,7 +9,10 @@ interface propsInterface {
 export default function SpecialKey(props : propsInterface){
     const dispatch = useDispatch()
     const handleClick = (target: any) => {
-        dispatch(deleteLetter())
+        if(target.target.innerText === "backspace")
+            dispatch(deleteLetter())
+        else
+            dispatch(checkWord())
     }
     
     return <div className={styles.container} onClick={handleClick}>
