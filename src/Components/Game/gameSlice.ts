@@ -1,17 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getRandomWord, markLetters } from '../../utils'
+import { getRandomWord, markLetters, isFullWord } from '../../utils'
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState: {
     correctWord: '',
     currentWords: [
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', ''],
-        ['', '', '', '', '']
+      ['', '', '', '', ''],
+      ['', '', '', '', ''],
+      ['', '', '', '', ''],
+      ['', '', '', '', ''],
+      ['', '', '', '', ''],
+      ['', '', '', '', '']
+    ],
+    markedLetters: [
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0],
+      [0, 0, 0, 0, 0]
     ],
     cursorX: 0,
     cursorY: 0
@@ -39,7 +47,14 @@ export const gameSlice = createSlice({
       state.currentWords = temp
     },
     checkWord: (state) => {
-      markLetters(state.correctWord, [...state.currentWords[state.cursorY]])
+      if(!isFullWord([...state.currentWords[state.cursorY]]))
+        return
+
+      const temp = [...state.markedLetters]
+      temp[state.cursorY] = markLetters(state.correctWord, [...state.currentWords[state.cursorY]])
+      state.markedLetters = temp
+      state.cursorY++
+      state.cursorX = 0
     }
   }
 })

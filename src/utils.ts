@@ -14,12 +14,12 @@ export function markLetters(correctWord: string, word: Array<string>){
 
     const remaining : string[] = []
     for(let i = 0; i < correctWord.length; ++i){
-        if(result[i] != 2)
+        if(result[i] !== 2)
             remaining.push(correctWord[i])
     }
 
     for(let i = 0; i < correctWord.length; ++i){
-        if(result[i] != 2 && remaining.includes(word[i])){
+        if(result[i] !== 2 && remaining.includes(word[i])){
             result[i] = 1
             remaining.splice(remaining.indexOf(word[i]), 1)
         }
@@ -28,6 +28,7 @@ export function markLetters(correctWord: string, word: Array<string>){
     return result
 }
 
-export function isFullWord(){
-
+export function isFullWord(word: Array<string>){
+    console.log(WORDS.includes(word.join('')))
+    return WORDS.includes(word.join(''))
 }

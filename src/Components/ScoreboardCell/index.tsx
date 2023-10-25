@@ -1,13 +1,18 @@
 import styles from './ScoreboardCell.module.css'
 
 interface childrenInterface{
-    children: String
+    children: {
+        word: string,
+        guess: number
+    }
 }
 
 export default function ScoreboardCell({ children } : childrenInterface){
-	return <div className={styles.container}>
+    console.log(children);
+    return <div className={`${styles.container} ${children.guess == 1 ? styles.badPosition : null} 
+        ${children.guess == 2 ? styles.correct: null}`}>
         {
-            children.toUpperCase()
+            children.word.toUpperCase()
         }
     </div>
 }
