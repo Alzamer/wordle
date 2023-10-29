@@ -1,35 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { getRandomWord, markLetters, isFullWord, isCorrect } from '../../utils'
 
+const initialState = {
+  correctWord: getRandomWord(),
+  gameOver: false,
+  gameWin: false,
+  currentWords: [
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', ''],
+    ['', '', '', '', '']
+  ],
+  markedLetters: [
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0],
+    [0, 0, 0, 0, 0]
+  ],
+  cursorX: 0,
+  cursorY: 0
+}
+
 export const gameSlice = createSlice({
   name: 'game',
-  initialState: {
-    correctWord: '',
-    gameOver: false,
-    gameWin: false,
-    currentWords: [
-      ['', '', '', '', ''],
-      ['', '', '', '', ''],
-      ['', '', '', '', ''],
-      ['', '', '', '', ''],
-      ['', '', '', '', ''],
-      ['', '', '', '', '']
-    ],
-    markedLetters: [
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0],
-      [0, 0, 0, 0, 0]
-    ],
-    cursorX: 0,
-    cursorY: 0
-  },
+  initialState,
   reducers: {
-    setCorrectWord: (state) => {
-      state.correctWord = getRandomWord()
-    },
     addLetter: (state, action) => {
       if(state.cursorX === 5)
         return;
@@ -65,14 +64,11 @@ export const gameSlice = createSlice({
       if(state.cursorY === 6)
         state.gameOver = true
     },
-    switchGameWin: (state) => {
-      state.gameWin = !state.gameWin
-    },
-    switchGameOver: (state) => {
-      state.gameOver = !state.gameOver
+    reset: () => {
+      return {...initialState, correctWord: getRandomWord()}
     }
   }
 })
 
-export const { setCorrectWord, addLetter, deleteLetter, checkWord, switchGameWin, switchGameOver } = gameSlice.actions
+export const { addLetter, deleteLetter, checkWord, reset } = gameSlice.actions
 export default gameSlice.reducer

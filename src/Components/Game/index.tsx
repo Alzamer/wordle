@@ -1,9 +1,8 @@
 import Scoreboard from '../Scoreboard'
 import Keyboard from '../Keyboard'
 import styles from './Game.module.css'
-import { setCorrectWord, switchGameWin, switchGameOver } from './gameSlice'
+import { reset } from './gameSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect } from 'react'
 import Modal from '../Modal'
 
 export default function Game(){
@@ -11,15 +10,11 @@ export default function Game(){
 	const showWin = useSelector((state : any) => state.game.gameWin)
 	const showOver = useSelector((state : any) => state.game.gameOver)
 	const setShowWin = () => {
-		dispatch(switchGameWin())
+		dispatch(reset())
 	}
 	const setShowGameOver = () => {
-		dispatch(switchGameOver())
+		dispatch(reset())
 	}
-
-	useEffect(() => {
-		dispatch(setCorrectWord())
-	}, [])
 
 	return <div className={styles.container}>
 		<Modal show={showWin} setShow={setShowWin}>

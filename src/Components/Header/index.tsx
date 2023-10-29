@@ -14,7 +14,7 @@ export default function Header(){
 		</div>
 		<div className={styles.right}>
 			<Modal show={showInfoModal} setShow={setShowInfoModal}>
-			Welcome to Wordle, the exciting and addictive word puzzle game that challenges your vocabulary and deduction skills! Wordle is a game that's simple to learn but endlessly engaging, making it perfect for word enthusiasts and casual gamers alike.
+				Welcome to Wordle, the exciting and addictive word puzzle game that challenges your vocabulary and deduction skills! Wordle is a game that's simple to learn but endlessly engaging, making it perfect for word enthusiasts and casual gamers alike.
 			</Modal>
 			<p className={styles.tile}>				
 				<span className="material-symbols-outlined" onClick={() => setShowInfoModal(!showInfoModal)}>
