@@ -32,3 +32,7 @@ export function isFullWord(word: Array<string>){
     console.log(WORDS.includes(word.join('')))
     return WORDS.includes(word.join(''))
 }
+
+export function isCorrect(word: Array<number>){
+    return word.every(x => x === 2)
+}

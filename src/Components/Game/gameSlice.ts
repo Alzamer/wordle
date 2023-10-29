@@ -1,10 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { getRandomWord, markLetters, isFullWord } from '../../utils'
+import { getRandomWord, markLetters, isFullWord, isCorrect } from '../../utils'
 
 export const gameSlice = createSlice({
   name: 'game',
   initialState: {
     correctWord: '',
+    gameOver: false,
+    gameWin: false,
     currentWords: [
       ['', '', '', '', ''],
       ['', '', '', '', ''],
@@ -53,11 +55,18 @@ export const gameSlice = createSlice({
       const temp = [...state.markedLetters]
       temp[state.cursorY] = markLetters(state.correctWord, [...state.currentWords[state.cursorY]])
       state.markedLetters = temp
+
+      if(isCorrect(temp[state.cursorY]))
+        state.gameWin = true;
+
       state.cursorY++
       state.cursorX = 0
+    },
+    switchGameWin: (state) => {
+      state.gameWin = !state.gameWin
     }
   }
 })
 
-export const { setCorrectWord, addLetter, deleteLetter, checkWord } = gameSlice.actions
+export const { setCorrectWord, addLetter, deleteLetter, checkWord, switchGameWin } = gameSlice.actions
 export default gameSlice.reducer

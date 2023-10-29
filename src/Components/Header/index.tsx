@@ -6,7 +6,6 @@ import { useState } from 'react'
 export default function Header(){
 	const [showInfoModal, setShowInfoModal] = useState(false); 
 	const [showScoreboardModal, setShowScoreboardModal] = useState(false); 
-	const [showSettingsModal, setShowSettingsModal] = useState(false); 
 
 	return <div className={styles.container}>
 		<div className={styles.left}></div>
@@ -14,22 +13,22 @@ export default function Header(){
 			<p>Wordle</p>
 		</div>
 		<div className={styles.right}>
-			<Modal show={showInfoModal} setShow={setShowInfoModal}/>
+			<Modal show={showInfoModal} setShow={setShowInfoModal}>
+			Welcome to Wordle, the exciting and addictive word puzzle game that challenges your vocabulary and deduction skills! Wordle is a game that's simple to learn but endlessly engaging, making it perfect for word enthusiasts and casual gamers alike.
+			</Modal>
 			<p className={styles.tile}>				
 				<span className="material-symbols-outlined" onClick={() => setShowInfoModal(!showInfoModal)}>
 					question_mark
 				</span>
 			</p>
-			<Modal show={showScoreboardModal} setShow={setShowScoreboardModal}/>
+			<Modal show={showScoreboardModal} setShow={setShowScoreboardModal}>
+				Welcome<h1>ASDOIB</h1> to Wordle, the exciting and addictive word puzzle game that challenges your vocabulary and deduction skills!
+				Wordle is a game that's simple to learn but endlessly engaging, making it perfect for word enthusiasts and casual gamers
+				alike.
+			</Modal>
 			<p className={styles.tile}>
 				<span className="material-symbols-outlined" onClick={() => setShowScoreboardModal(!showScoreboardModal)}>
 					scoreboard
-				</span>
-			</p>
-			<Modal show={showSettingsModal} setShow={setShowSettingsModal}/>
-			<p className={styles.tile}>
-				<span className="material-symbols-outlined" onClick={() => setShowSettingsModal(!showSettingsModal)}>
-					settings
 				</span>
 			</p>
 			<p className={styles.info}>
