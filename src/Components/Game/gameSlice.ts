@@ -61,12 +61,18 @@ export const gameSlice = createSlice({
 
       state.cursorY++
       state.cursorX = 0
+
+      if(state.cursorY === 6)
+        state.gameOver = true
     },
     switchGameWin: (state) => {
       state.gameWin = !state.gameWin
+    },
+    switchGameOver: (state) => {
+      state.gameOver = !state.gameOver
     }
   }
 })
 
-export const { setCorrectWord, addLetter, deleteLetter, checkWord, switchGameWin } = gameSlice.actions
+export const { setCorrectWord, addLetter, deleteLetter, checkWord, switchGameWin, switchGameOver } = gameSlice.actions
 export default gameSlice.reducer
