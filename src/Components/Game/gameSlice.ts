@@ -55,8 +55,21 @@ export const gameSlice = createSlice({
       temp[state.cursorY] = markLetters(state.correctWord, [...state.currentWords[state.cursorY]])
       state.markedLetters = temp
 
-      if(isCorrect(temp[state.cursorY]))
+      if(isCorrect(temp[state.cursorY])){
+        const currentDate = new Date();
+        const currentDateString = currentDate.getDate() + "/"
+        + (currentDate.getMonth()+1)  + "/" 
+        + currentDate.getFullYear() + "/"  
+        + currentDate.getHours() + "/"  
+        + currentDate.getMinutes() + "/" 
+        + currentDate.getSeconds();
+
+        localStorage.setItem(currentDateString, JSON.stringify({
+          correctWord: state.correctWord,
+          try: state.cursorY,
+        }));
         state.gameWin = true;
+      }
 
       state.cursorY++
       state.cursorX = 0
