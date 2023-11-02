@@ -59,12 +59,13 @@ export const gameSlice = createSlice({
         const currentDate = new Date();
         const currentDateString = currentDate.getDate() + "/"
         + (currentDate.getMonth()+1)  + "/" 
-        + currentDate.getFullYear() + "/"  
-        + currentDate.getHours() + "/"  
-        + currentDate.getMinutes() + "/" 
+        + currentDate.getFullYear() + " "  
+        + currentDate.getHours() + ":"  
+        + currentDate.getMinutes() + ":" 
         + currentDate.getSeconds();
 
-        localStorage.setItem(currentDateString, JSON.stringify({
+        localStorage.setItem(`wordle${localStorage.length}`, JSON.stringify({
+          date: currentDateString,
           correctWord: state.correctWord,
           try: state.cursorY,
         }));
