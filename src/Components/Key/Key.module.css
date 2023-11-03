@@ -15,6 +15,14 @@
     cursor: pointer;
 }
 
+.yellow{
+    background: rgb(201, 165, 8);;
+}
+
+.green{
+    background: rgb(17, 204, 0);
+}
+
 @media (max-width: 1135px) {
     .container{
         width: 36px;

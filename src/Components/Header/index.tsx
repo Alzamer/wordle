@@ -33,7 +33,7 @@ export default function Header(){
 		}
 
 		setLocalStorageData(resultArray);
-	})
+	}, [showInfoModal])
 
 	return <div className={styles.container}>
 		<div className={styles.left}></div>

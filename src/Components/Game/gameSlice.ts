@@ -5,6 +5,8 @@ const initialState = {
   correctWord: getRandomWord(),
   gameOver: false,
   gameWin: false,
+  yellowLetters: [] as unknown[],
+  greenLetters: [] as unknown[],
   currentWords: [
     ['', '', '', '', ''],
     ['', '', '', '', ''],
@@ -72,11 +74,24 @@ export const gameSlice = createSlice({
         state.gameWin = true;
       }
 
+      state.yellowLetters = [...temp[state.cursorY].map((x, i) => {
+        if(x === 1)
+          return state.currentWords[state.cursorY][i]
+      }), ...state.yellowLetters]
+
+      state.greenLetters = [...temp[state.cursorY].map((x, i) => {
+        if(x === 2)
+          return state.currentWords[state.cursorY][i]
+      }), ...state.greenLetters]
+
       state.cursorY++
       state.cursorX = 0
 
       if(state.cursorY === 6)
         state.gameOver = true
+
+      console.log(state.yellowLetters)
+      console.log(state.greenLetters)
     },
     reset: () => {
       return {...initialState, correctWord: getRandomWord()}
