@@ -24,7 +24,8 @@ const initialState = {
     [0, 0, 0, 0, 0]
   ],
   cursorX: 0,
-  cursorY: 0
+  cursorY: 0,
+  incorrectWord: false,
 }
 
 export const gameSlice = createSlice({
@@ -50,8 +51,10 @@ export const gameSlice = createSlice({
       state.currentWords = temp
     },
     checkWord: (state) => {
-      if(!isFullWord([...state.currentWords[state.cursorY]]))
+      if(!isFullWord([...state.currentWords[state.cursorY]])){
+        state.incorrectWord = true;
         return
+      }
 
       const temp = [...state.markedLetters]
       temp[state.cursorY] = markLetters(state.correctWord, [...state.currentWords[state.cursorY]])
@@ -89,15 +92,15 @@ export const gameSlice = createSlice({
 
       if(state.cursorY === 6)
         state.gameOver = true
-
-      console.log(state.yellowLetters)
-      console.log(state.greenLetters)
     },
     reset: () => {
       return {...initialState, correctWord: getRandomWord()}
+    },
+    switchIncorrectWord: (state) => {
+      state.incorrectWord = !state.incorrectWord
     }
   }
 })
 
-export const { addLetter, deleteLetter, checkWord, reset } = gameSlice.actions
+export const { addLetter, deleteLetter, checkWord, reset, switchIncorrectWord } = gameSlice.actions
 export default gameSlice.reducer

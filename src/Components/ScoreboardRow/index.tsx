@@ -9,7 +9,7 @@ interface propsInterface{
 }
 
 export default function ScoreboardRow({ children } : propsInterface){
-	return <div className={styles.container}>
+    return <div className={styles.container}>
         <ScoreboardCell>{{ word: children.word[0], guess: children.guess[0] }}</ScoreboardCell>
         <ScoreboardCell>{{ word: children.word[1], guess: children.guess[1] }}</ScoreboardCell>
         <ScoreboardCell>{{ word: children.word[2], guess: children.guess[2] }}</ScoreboardCell>

@@ -29,7 +29,6 @@ export function markLetters(correctWord: string, word: Array<string>){
 }
 
 export function isFullWord(word: Array<string>){
-    console.log(WORDS.includes(word.join('')))
     return WORDS.includes(word.join(''))
 }
 
