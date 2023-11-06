@@ -23,7 +23,7 @@
 
 .right{
     display: flex;
-    width: 33%;
+    width: 400px;
     justify-content: space-around;
     align-items: center;
 }
@@ -35,8 +35,7 @@
 
 .tile{
     width: 60px;
-    min-width: 60px;
-    max-width: 60px;
+    text-align: center;
 }
 
 .info a{
@@ -50,7 +49,7 @@
     color: lightskyblue;
 }
 
-@media (max-width: 1135px) {
+@media (max-width: 1185px) {
     .right{
         display: none;
     }

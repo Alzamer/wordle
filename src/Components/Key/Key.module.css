@@ -23,7 +23,7 @@
     background: rgb(17, 204, 0);
 }
 
-@media (max-width: 1135px) {
+@media (max-width: 550px) {
     .container{
         width: 36px;
     }
