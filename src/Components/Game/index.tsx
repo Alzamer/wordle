@@ -1,14 +1,14 @@
 import Scoreboard from '../Scoreboard'
 import Keyboard from '../Keyboard'
 import styles from './Game.module.css'
-import { reset } from './gameSlice'
+import { RootState, reset } from './gameSlice'
 import { useDispatch, useSelector } from 'react-redux'
 import Modal from '../Modal'
 
 export default function Game(){
 	const dispatch = useDispatch()
-	const showWin = useSelector((state : any) => state.game.gameWin)
-	const showOver = useSelector((state : any) => state.game.gameOver)
+	const showWin = useSelector((state : RootState) => state.game.gameWin)
+	const showOver = useSelector((state : RootState) => state.game.gameOver)
 	const setShowWin = () => {
 		dispatch(reset())
 	}

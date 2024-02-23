@@ -3,10 +3,10 @@ import SpecialKey from '../SpecialKey'
 import styles from './KeyboardRow.module.css'
 
 type propsType = {
-    children: Array<String>,
+    children: Array<string>,
 }
 
-function keyFunc(x: String, index: number, array: String[] ){
+function keyFunc(x: string, index: number, array: Array<string> ){
     if(x.length === 1)
         return <Key key={index}>{ x }</Key>
     return <SpecialKey key={index}>{ x }</SpecialKey>

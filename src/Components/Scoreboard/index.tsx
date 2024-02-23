@@ -3,13 +3,13 @@ import { useSelector, useDispatch } from 'react-redux'
 import styles from './Scoreboard.module.css'
 import { useSpring, animated } from '@react-spring/web'
 import { switchIncorrectWord } from '../Game/gameSlice'
-import { useState } from 'react'
+import { RootState } from '../Game/gameSlice';
 
 export default function Scoreboard(){
-    const words = useSelector((state: any) => state.game.currentWords)
-    const guesses = useSelector((state: any) => state.game.markedLetters)
-    const currentY = useSelector((state: any) => state.game.cursorY)
-    const incorrectWord = useSelector((state: any) => state.game.incorrectWord)
+    const words = useSelector((state: RootState) => state.game.currentWords)
+    const guesses = useSelector((state: RootState) => state.game.markedLetters)
+    const currentY = useSelector((state: RootState) => state.game.cursorY)
+    const incorrectWord = useSelector((state: RootState) => state.game.incorrectWord)
     const dispatch = useDispatch()
     const shakeAnimation = useSpring({
         from: { transform: 'translateX(0px)' },

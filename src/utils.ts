@@ -12,7 +12,7 @@ export function markLetters(correctWord: string, word: Array<string>){
             result[i] = 2            
     }
 
-    const remaining : string[] = []
+    const remaining : Array<string> = []
     for(let i = 0; i < correctWord.length; ++i){
         if(result[i] !== 2)
             remaining.push(correctWord[i])

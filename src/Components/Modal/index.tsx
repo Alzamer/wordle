@@ -3,7 +3,7 @@ import styles from './Modal.module.css'
 interface propsInterface {
     show: boolean
     setShow: Function,
-    children: any
+    children: React.ReactNode
 }
 
 export default function Modal({ show, setShow, children } : propsInterface){

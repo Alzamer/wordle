@@ -8,8 +8,9 @@ interface propsInterface {
 
 export default function SpecialKey(props : propsInterface){
     const dispatch = useDispatch()
-    const handleClick = (target: any) => {
-        if(target.target.innerText === "backspace")
+    const handleClick = (event: React.MouseEvent) => {
+        const target = event.target as HTMLElement;
+        if(target.innerText === "backspace")
             dispatch(deleteLetter())
         else
             dispatch(checkWord())

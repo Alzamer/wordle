@@ -1,10 +1,10 @@
-import { useEffect } from 'react'
+import { KeyboardEvent, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { addLetter, deleteLetter, checkWord } from '../Game/gameSlice'
 import KeyboardRow from '../KeyboardRow'
 import styles from './Keyboard.module.css'
 
-type keyboardKeysType = Array<Array<String>>
+type keyboardKeysType = Array<Array<string>>
 
 export default function Keyboard(){
 	const dispatch = useDispatch()

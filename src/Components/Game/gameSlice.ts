@@ -5,9 +5,9 @@ const initialState = {
   correctWord: getRandomWord(),
   gameOver: false,
   gameWin: false,
-  yellowLetters: [] as unknown[],
-  greenLetters: [] as unknown[],
-  blackLetters: [] as unknown[],
+  yellowLetters: [] as Array<string>,
+  greenLetters: [] as Array<string>,
+  blackLetters: [] as Array<string>,
   currentWords: [
     ['', '', '', '', ''],
     ['', '', '', '', ''],
@@ -80,17 +80,20 @@ export const gameSlice = createSlice({
 
       state.yellowLetters = [...temp[state.cursorY].map((x, i) => {
         if(x === 1)
-          return state.currentWords[state.cursorY][i]
+          return state.currentWords[state.cursorY][i];
+        return '';
       }), ...state.yellowLetters]
 
       state.greenLetters = [...temp[state.cursorY].map((x, i) => {
         if(x === 2)
-          return state.currentWords[state.cursorY][i]
+          return state.currentWords[state.cursorY][i];
+        return '';
       }), ...state.greenLetters]
 
       state.blackLetters = [...temp[state.cursorY].map((x, i) => {
         if(x === 0)
-          return state.currentWords[state.cursorY][i]
+          return state.currentWords[state.cursorY][i];
+        return '';
       }), ...state.blackLetters]
 
       state.cursorY++
@@ -110,3 +113,6 @@ export const gameSlice = createSlice({
 
 export const { addLetter, deleteLetter, checkWord, reset, switchIncorrectWord } = gameSlice.actions
 export default gameSlice.reducer
+export type RootState = {
+  game: typeof initialState
+};
