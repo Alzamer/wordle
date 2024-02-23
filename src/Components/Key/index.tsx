@@ -12,6 +12,7 @@ export default function Key(props : propsInterface){
 	const dispatch = useDispatch()
 	const yellowLetters = useSelector((state: any) => state.game.yellowLetters);
 	const greenLetters = useSelector((state: any) => state.game.greenLetters);
+	const blackLetters = useSelector((state: any) => state.game.blackLetters);
 	const handleClick = (element: any) => {
 		dispatch(addLetter(
 			`${props.children}`
@@ -19,7 +20,9 @@ export default function Key(props : propsInterface){
 	}
 
 	return <div className={`${styles.container} ${yellowLetters.includes(props.children.toLowerCase()) ? styles.yellow : null} 
-		${greenLetters.includes(props.children.toLowerCase()) ? styles.green : null}`} onClick={handleClick}>
+		${greenLetters.includes(props.children.toLowerCase()) ? styles.green : null}
+		${blackLetters.includes(props.children.toLowerCase()) ? styles.black : null}`}
+		onClick={handleClick}>
         {
 			props.children
 		}

@@ -7,6 +7,7 @@ const initialState = {
   gameWin: false,
   yellowLetters: [] as unknown[],
   greenLetters: [] as unknown[],
+  blackLetters: [] as unknown[],
   currentWords: [
     ['', '', '', '', ''],
     ['', '', '', '', ''],
@@ -86,6 +87,11 @@ export const gameSlice = createSlice({
         if(x === 2)
           return state.currentWords[state.cursorY][i]
       }), ...state.greenLetters]
+
+      state.blackLetters = [...temp[state.cursorY].map((x, i) => {
+        if(x === 0)
+          return state.currentWords[state.cursorY][i]
+      }), ...state.blackLetters]
 
       state.cursorY++
       state.cursorX = 0
